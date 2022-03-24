@@ -5,7 +5,7 @@ import 'package:weatherapp/Models/WeatherModel.dart';
 class WeatherService{
   String baseurl="https://www.metaweather.com/api";
 
-  Future<int> getwoeid({required String CityName}) async {
+  Future<int> getWoeid({required String CityName}) async {
     Uri url=Uri.parse('$baseurl/location/search/?query=$CityName');
     http.Response response = await http.get(url);
 
@@ -15,8 +15,8 @@ class WeatherService{
     int woeid=josndata[0]['woeid'];
     return woeid;
   }
-  void getwether({required String CityName}) async{
-    int cityID= await getwoeid(CityName: CityName);
+  void getWether({required String CityName}) async{
+    int cityID= await getWoeid(CityName: CityName);
     Uri url=Uri.parse('$baseurl/api/location/$cityID');
     http.Response response = await http.get(url);
     Map<String,dynamic> jsondata=await jsonDecode(response.body);

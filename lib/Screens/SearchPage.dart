@@ -17,17 +17,19 @@ class SearchPage extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: TextField(
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
+                border: OutlineInputBorder(),
                 hintText: "Enter city Name",
                 label: Text("City"),
-              suffixIcon: Icon(Icons.search),
-              contentPadding: EdgeInsets.symmetric(vertical: 30,horizontal: 35)
+                suffixIcon: Icon(Icons.search),
+                contentPadding: EdgeInsets.symmetric(vertical: 30,horizontal: 35)
 
             ),
             onSubmitted: (data){
               cityName=data;
               WeatherService service=WeatherService();
-              service.getwoeid(CityName: cityName!);
+              service.getWether(CityName: cityName!);
+
+
 
             },
           ),
