@@ -1,8 +1,12 @@
+import 'package:app/Screens/SearchPage.dart';
 import 'package:flutter/material.dart';
 class UpdateHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String max =model!.maxTemp!.toString();
+    String min =model!.minTemp!.toString();
+    String temp=model!.temp!.toString();
     return Container(
 
       child: Column(
@@ -11,14 +15,14 @@ class UpdateHome extends StatelessWidget {
           const Spacer(
             flex: 3,
           ),
-          Text("Cairo",
+          Text(cityName!,
             style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
             ),
           ),
           Text(
-            'Date',
+            model!.date!,
             style: TextStyle(
               fontSize: 22,
             ),
@@ -29,7 +33,7 @@ class UpdateHome extends StatelessWidget {
             children: [
               Image.asset('assets/images/clear.png'),
               Text(
-                '20.0',
+                temp,
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
@@ -37,15 +41,15 @@ class UpdateHome extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Text('maxTemp :10'),
-                  Text('minTemp : 5'),
+                  Text(max),
+                  Text(min),
                 ],
               ),
             ],
           ),
           Spacer(),
           Text(
-            'state name',
+            model!.statename!,
             style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,

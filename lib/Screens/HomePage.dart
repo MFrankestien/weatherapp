@@ -1,9 +1,16 @@
+import 'package:app/Models/WeatherModel.dart';
+import 'package:app/Screens/SearchPage.dart';
+import 'package:app/Screens/UpdatedHome.dart';
 import 'package:flutter/material.dart';
-import 'package:weatherapp/Screens/SearchPage.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
 
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,11 +18,12 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         title: Text('Home Page'),
         actions: [IconButton(onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage(),));
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) => SearchPage(x: updateui,),));
 
         }, icon: Icon(Icons.search))],
       ),
-      body: Center(
+      body: model==null?Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -29,7 +37,12 @@ class HomePage extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ):UpdateHome(),
     );
+  }
+  void updateui(){
+    setState(() {
+
+    });
   }
 }
